@@ -1,3 +1,8 @@
+/*
+* Android client-side code. Store a key/value pair on the NDB server;
+* or uery the NDB server using a key.
+* Author: JJ
+*/
 package com.example.gaedbclient;
 
 import java.io.IOException;
@@ -48,15 +53,15 @@ public class MainActivity extends Activity {
 		storeButton.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View v) {
         		
-        		//ArrayList<String> passing = new ArrayList<String>();
-        		//passing.add(fieldKey);
-        		//passing.add(fieldVal);
+			
         		String[ ] aStr = new String[2] ;
         		aStr[0] = ((EditText)findViewById(R.id.fieldInKey)).getText().toString();
         		aStr[1] = ((EditText)findViewById(R.id.fieldInVal)).getText().toString();
         		String[ ] rStr = new String[1] ;
         		rStr[0] = ((EditText)findViewById(R.id.inQKey)).getText().toString();
         		
+        		// If both text fields are non-empty, deem it as a "store" request
+        		// If only the "key" field is non-empty, deem it as a "query"
         		if (!aStr[0].isEmpty() && !aStr[1].isEmpty())
         		{
         			httpStore hS = new httpStore();
@@ -80,13 +85,9 @@ public class MainActivity extends Activity {
 	}
 	
 	protected class httpStore extends AsyncTask<String, Void, Void> {
+		
 		@Override
 		protected Void doInBackground(String... strs) {
-			// Sample HTTP POST request code:
-			// http://www.androidhive.info/2011/10/android-making-http-requests/
-			// http://www.softwarepassion.com/android-series-get-post-and-multipart-post-requests/
-			// Debugging server side using curl:
-			// http://stackoverflow.com/questions/1087185/http-testing-tool-easily-send-post-get-put
 			String temp1="";
 			HttpClient httpclient = new DefaultHttpClient();
 
@@ -100,7 +101,7 @@ public class MainActivity extends Activity {
 		        nameValuePairs.add(new BasicNameValuePair("tag", strs[0]));
 		        nameValuePairs.add(new BasicNameValuePair("value", strs[1]));  
 
-		      
+		      		// Try to send the key/value pair via encoded HTTP request
 				 try {
 					 UrlEncodedFormEntity httpEntity = new UrlEncodedFormEntity(nameValuePairs);
 					 storeVal.setEntity(httpEntity); 
@@ -153,7 +154,7 @@ public class MainActivity extends Activity {
 		        // "mytagInput" is the value that the client is submitting to the server
 		        nameValuePairs.add(new BasicNameValuePair("tag", strs[0]));
 		        
-		      
+		      		// Try to send the key/value pair via encoded HTTP request
 				 try {
 					 UrlEncodedFormEntity httpEntity = new UrlEncodedFormEntity(nameValuePairs);
 					 getVal.setEntity(httpEntity); 
