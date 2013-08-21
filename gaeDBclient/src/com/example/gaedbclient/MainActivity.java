@@ -90,8 +90,7 @@ public class MainActivity extends Activity {
 			String temp1="";
 			HttpClient httpclient = new DefaultHttpClient();
 
-			//HttpPost getVal = new HttpPost("http://testdbserver.appspot.com/getvalue" );
-			HttpPost storeVal = new HttpPost("http://testdbserver.appspot.com/storeavalue");
+			HttpPost storeVal = new HttpPost("http://dearbabymaimai.appspot.com/modify");
 			
 			// ArrayList<NameValuePair> is used to send values from android app to server.
 		        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();  
@@ -100,8 +99,7 @@ public class MainActivity extends Activity {
 		        // "mytagInput" is the value that the client is submitting to the server
 		        nameValuePairs.add(new BasicNameValuePair("tag", strs[0]));
 		        nameValuePairs.add(new BasicNameValuePair("value", strs[1]));  
-		        //httpclient.getParams().setParameter("http.useragent", "TinyWebDB/Android dataget");
-		        
+
 		      
 				 try {
 					 UrlEncodedFormEntity httpEntity = new UrlEncodedFormEntity(nameValuePairs);
@@ -143,15 +141,10 @@ public class MainActivity extends Activity {
 		String reply = null;
 		@Override
 		protected String doInBackground(String... strs) {
-			// Sample HTTP POST request code:
-			// http://www.androidhive.info/2011/10/android-making-http-requests/
-			// http://www.softwarepassion.com/android-series-get-post-and-multipart-post-requests/
-			// Debugging server side using curl:
-			// http://stackoverflow.com/questions/1087185/http-testing-tool-easily-send-post-get-put
 			String temp1="";
 			HttpClient httpclient = new DefaultHttpClient();
 
-				HttpPost getVal = new HttpPost("http://testdbserver.appspot.com/getvalue");
+				HttpPost getVal = new HttpPost("http://dearbabymaimai.appspot.com/query");
 			
 				// ArrayList<NameValuePair> is used to send values from android app to server.
 		        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();  
