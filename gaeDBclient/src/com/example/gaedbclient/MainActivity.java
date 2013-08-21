@@ -96,10 +96,10 @@ public class MainActivity extends Activity {
 			// ArrayList<NameValuePair> is used to send values from android app to server.
 		        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();  
 		        
-		        // "tag" is the name of the text form on the webserver
-		        // "mytagInput" is the value that the client is submitting to the server
-		        nameValuePairs.add(new BasicNameValuePair("tag", strs[0]));
-		        nameValuePairs.add(new BasicNameValuePair("value", strs[1]));  
+		        // "zipcode" represents the location
+		        // "temp" is the weather
+		        nameValuePairs.add(new BasicNameValuePair("zipcode", strs[0]));
+		        nameValuePairs.add(new BasicNameValuePair("temp", strs[1]));  
 
 		      		// Try to send the key/value pair via encoded HTTP request
 				 try {
@@ -150,8 +150,6 @@ public class MainActivity extends Activity {
 				// ArrayList<NameValuePair> is used to send values from android app to server.
 		        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();  
 		        
-		        // "tag" is the name of the text form on the webserver
-		        // "mytagInput" is the value that the client is submitting to the server
 		        nameValuePairs.add(new BasicNameValuePair("tag", strs[0]));
 		        
 		      		// Try to send the key/value pair via encoded HTTP request
