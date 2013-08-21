@@ -21,6 +21,6 @@ Example usage:
 After deploying the app into GAE, url1 can display the history weather information in JSON array format. 
 url2 can be used as HTTP POST request that mofidifies the weather information in NDB.
 
-url1: http://dearbabymaimai.appspot.com/query?zipcode=53705 \
+url1: http://dearbabymaimai.appspot.com/query?zipcode=53705
 
 url2: http://dearbabymaimai.appspot.com/modify?zipcode=53705&temp=90&date=08212013
