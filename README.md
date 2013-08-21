@@ -15,15 +15,8 @@ The client sends http requests to the server quering the weather for a given zip
 cloud servers (google app engine). It queries a NDB datastore with the zipcode as the key and sends back the 
 weather info as JSON objects.
 
-The client can also use HTTP GET to modify the data stored in the NDB datastore. The temperature information 
+The client can also use HTTP POST to modify the data stored in the NDB datastore. The temperature information 
 is contained in an url. Upon receiving the url, the server extracts the information and stores the data 
 into the NDB datastore.
 
-Example usage:
-
-After deploying the app into GAE, url1 can display the history weather information in JSON array format. 
-url2 can be used as HTTP POST request that mofidifies the weather information in NDB.
-
-url1: http://dearbabymaimai.appspot.com/query?zipcode=53705
-
-url2: http://dearbabymaimai.appspot.com/modify?zipcode=53705&temp=90&date=08212013
+Andriod client UI is used for storing key/value pair, or inputing a query key.
